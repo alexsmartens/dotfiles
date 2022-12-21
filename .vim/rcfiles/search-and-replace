@@ -1,0 +1,6 @@
+set ignorecase      " Ignore case when searching
+set smartcase       " When searching try to be smart about cases
+set hlsearch        " Highlight search results
+set incsearch       " Makes search act like search in modern browsers
+set showmatch       " Show matching brackets when text indicator is over them
+

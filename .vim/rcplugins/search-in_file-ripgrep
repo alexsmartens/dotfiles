@@ -1,0 +1,12 @@
+" Code searching tool. Ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
+
+" Prerequisite
+" brew install ripgrep
+
+" Plug 'mhinz/vim-grepper'
+
+let g:grepper={}
+let g:grepper.tools=["rg"]
+
+" vim:ft=vi
+

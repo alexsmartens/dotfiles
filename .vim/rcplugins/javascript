@@ -1,0 +1,8 @@
+" JavaScript syntax highlighting and improved indentation
+Plug 'pangloss/vim-javascript'
+
+" React syntax highlighting and improved indentation (also supports the typescript tsx file)
+Plug 'maxmellon/vim-jsx-pretty'
+
+" vim:ft=vim
+

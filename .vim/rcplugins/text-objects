@@ -1,0 +1,24 @@
+" TextObj - Custom text objects for the line, indent level, entier file, etc
+
+" Dependency that is used for building custom text objects
+Plug 'kana/vim-textobj-user'
+
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-entire'
+Plug 'beloglazov/vim-textobj-quotes'
+
+" enabled for the below plugin
+runtime macros/matchit.vim
+set nocompatible
+if has("autocmd")
+  filetype indent plugin on
+endif
+Plug 'nelstrom/vim-textobj-rubyblock'
+
+" remap `r`(ruby) to `b`(block)
+map ab ar
+map ib ir
+
+" vim:ft=vim
+

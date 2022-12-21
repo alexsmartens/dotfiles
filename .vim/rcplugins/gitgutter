@@ -1,0 +1,28 @@
+" A Vim plugin which shows a git diff in the sign column. It can also preview,
+" stage, and undo individual hunks; and stage partial hunks. The plugin also
+" provides a hunk text object.
+
+Plug 'airblade/vim-gitgutter'
+
+" Jump to next/previous hunk (change)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+" Undo/stage the hunk
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+" Preview hunk
+nmap ghp <Plug>(GitGutterPreviewHunk)
+" Close preview
+nmap ghc :pclose<cr>
+" Map hunk text object to h
+omap ih <Plug>(GitGutterTextObjectInnerPending)
+omap ah <Plug>(GitGutterTextObjectOuterPending)
+xmap ih <Plug>(GitGutterTextObjectInnerVisual)
+xmap ah <Plug>(GitGutterTextObjectOuterVisual)
+
+" By default diffs are relative to the index. How you can make them relative to
+" the working tree:
+" let g:gitgutter_diff_relative_to = 'working_tree'
+
+" vim:ft=vim
+

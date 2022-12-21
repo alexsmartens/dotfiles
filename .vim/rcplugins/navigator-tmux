@@ -1,0 +1,17 @@
+" Vim Tmux Navigator - Seamlessly navigate between vim splits and tmux panes
+
+Plug 'christoomey/vim-tmux-navigator'
+
+" Custom mappings
+" let g:tmux_navigator_no_mappings = 1
+" nnoremap <silent> <leader>h :TmuxNavigateLeft<cr>
+" nnoremap <silent> <leader>j :TmuxNavigateDown<cr>
+" nnoremap <silent> <leader>k :TmuxNavigateUp<cr>
+" nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
+" nnoremap <silent> <leader>/ :TmuxNavigatePrevious<cr>
+
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+
+" vim:ft=vi
+

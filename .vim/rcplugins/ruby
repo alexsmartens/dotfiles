@@ -1,0 +1,6 @@
+" Ruby improved syntax highlighting, better indentation, omnicompletion, and various useful tools and mappings
+
+Plug 'vim-ruby/vim-ruby'
+
+" vim:ft=vim
+

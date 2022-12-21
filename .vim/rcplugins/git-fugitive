@@ -1,0 +1,12 @@
+" Git plugin
+
+Plug 'tpope/vim-fugitive'
+
+" Enables :GBrowse from fugitive.vim to open GitHub URL
+Plug 'tpope/vim-rhubarb'
+
+" Split always vertical
+set diffopt=vertical
+
+" vim:ft=vi
+

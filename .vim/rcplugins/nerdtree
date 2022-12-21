@@ -1,0 +1,60 @@
+" NERDTree is a file explorer
+
+" Dependencies, adds icons to nerdtree for most common file extansions
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" vim-devicons
+" let g:DevIconsEnableFoldersOpenClose = 1
+set encoding=UTF-8
+
+Plug 'preservim/nerdtree'
+
+" vim-nerdtree-syntax-highlight
+" let g:NERDTreeHighlightCursorline = 1
+" let g:NERDTreeHighlightFolders = 1          " enables folder icon highlighting using exact match
+" let g:NERDTreeHighlightFoldersFullName = 1  " highlights the folder name
+
+" " Start NERDTree and leave the cursor in it.
+" autocmd VimEnter * NERDTree
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 &&
+  \ winnr('$') == 1 &&
+  \ exists('b:NERDTree') &&
+  \ b:NERDTree.isTabTree()
+  \ | quit | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window
+" and bring back NERDTree
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' &&
+  \ bufname('%') !~ 'NERD_tree_\d\+' &&
+  \ winnr('$') > 1 |
+  \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf
+  \ | endif
+
+" noremap <leader>e :NERDTreeToggle<cr>
+" nnoremap <silent> <C-n> :NERDTreeToggle<cr>
+" nnoremap <silent> <C-f> :NERDTreeFind<cr>
+
+" Open nerdtree focused on the directory of the currently open buffer
+function! NERDTreeToggleInCurDir()
+  " If NERDTree is open in the current buffer
+  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+    exe ":NERDTreeClose"
+  else
+    if (expand("%:t") != '')
+      exe ":NERDTreeFind"
+    else
+      exe ":NERDTreeToggle"
+    endif
+  endif
+endfunction
+
+nnoremap <C-b> :call NERDTreeToggleInCurDir()<cr>
+
+" "Disable "Press ? for help"
+" let NERDTreeMinimalUI = 1
+
+" vim:ft=v
+

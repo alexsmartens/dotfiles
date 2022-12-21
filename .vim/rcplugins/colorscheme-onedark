@@ -1,0 +1,18 @@
+" Change line number colors
+if !has('nvim')
+  " Hack to make CursorLineNr work on Vim 8.2 (vs Neovim)
+  " https://github.com/joshdick/onedark.vim/issues/286
+  set cursorline
+  set cursorlineopt=number
+endif
+" More info on tweaking colors: https://github.com/joshdick/onedark.vim#onedarkextend_highlight
+augroup colorextend
+  autocmd!
+  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": {  "gui": "#CCCCCC" } })
+  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#debaba" } })
+augroup END
+
+Plug 'joshdick/onedark.vim'
+
+" vim:ft=vim
+

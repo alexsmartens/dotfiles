@@ -1,0 +1,44 @@
+" The statusline is the colored line at the bottom,
+" which contains the sections (possibly in different colors)
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#enabled = 1
+" Enable/disable displaying tabs, regardless of number
+let g:airline#extensions#tabline#show_tabs = 1
+" Enable/disable displaying open splits per tab (only when tabs are opened)
+let g:airline#extensions#tabline#show_splits = 1
+" Custom tabline look
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" Custom look
+let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+
+" Enable displaying index of the buffer (up to 10 mappings in mode 1)
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+" Tab navigations (Alt-1, Alt-2, ..., Alt--, Alt-+)
+nmap ¡ <Plug>AirlineSelectTab1
+nmap ™ <Plug>AirlineSelectTab2
+nmap £ <Plug>AirlineSelectTab3
+nmap ¢ <Plug>AirlineSelectTab4
+nmap ∞ <Plug>AirlineSelectTab5
+nmap § <Plug>AirlineSelectTab6
+nmap ¶ <Plug>AirlineSelectTab7
+nmap • <Plug>AirlineSelectTab8
+nmap ª <Plug>AirlineSelectTab9
+nmap º <Plug>AirlineSelectTab0
+nmap – <Plug>AirlineSelectPrevTab
+nmap ≠ <Plug>AirlineSelectNextTab
+
+" vim:ft=vim
+

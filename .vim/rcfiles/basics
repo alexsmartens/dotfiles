@@ -1,0 +1,73 @@
+set encoding=UTF-8  " Set utf8 as standard encoding and en_US as the standard language
+set backspace=2     " Backspace deletes like most programs in insert mode
+
+" Enable spelling check for all open files
+autocmd BufRead,BufNewFile * setlocal spell
+" Enable looking into dictionary for autocompletion when spell is enabled
+set complete+=kspell
+" Enable completion menu even for one match and
+" select the longest match first
+" set completeopt=menuone,longest
+set completeopt=menuone,preview
+" Disable autocomplete menu hints
+" set shortmess+=c
+
+set number          " Enable line numbers
+set numberwidth=5
+set relativenumber  " Enable relative line numbers
+
+set showcmd         " Display incomplete commands
+set laststatus=2    " Always show the status line
+
+set autowrite       " Automatically :write before running commands
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowritebackup
+set noswapfile
+set history=500     " Sets how many lines of history VIM has to remember
+set hidden          " Don't require saving before closing a buffer
+
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
+set ai              " Auto indent
+set expandtab       " Use spaces instead of tabs
+set smarttab        " Be smart when using tabs (?what specifically)
+set si              " Smart indent
+" set wrap            " Wrap lines
+set list listchars=tab:»·,trail:·,nbsp:·  " Display extra whitespace
+
+set so=7            " # of always visible lines to the cursor - when moving vertically using j/k
+
+" Delay before vim writes its swap file (4000ms by default), this number is
+" important for updates like showing git diff
+set updatetime=100
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
+" Simplicity shortcuts
+:command W w
+
+" "Buffer navigation
+nmap ˙ :bp<cr>
+nmap ¬ :bn<cr>
+" nmap ç :bufdo bd    " close all buffers except the current one
+nmap ç :b#<bar>bd#<cr> " delete current buffer and switch to the previously open one
+" above command is the same as ':b#|bd#'
+
+" " No annoying sound on errors
+" set noerrorbells
+" set novisualbell
+" set t_vb=
+" set tm=500
+" " Properly disable sound on errors on MacVim
+" if has("gui_macvim")
+"     autocmd GUIEnter * set vb t_vb=
+" endif
+

@@ -1,0 +1,7 @@
+" Syntax highlighting, matching rules and mappings for the original Markdown and extensions.
+
+" Plug 'godlygeek/tabular'
+" Plug 'preservim/vim-markdown'
+
+" vim:ft=vim
+"
