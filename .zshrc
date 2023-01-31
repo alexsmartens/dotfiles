@@ -14,15 +14,22 @@ setopt aliases
 # Load Rbenv
 eval "$(rbenv init -)"
 
+## INSTALLATION of Zsh & Plugins (with brew)
+# brew install zsh
+# brew install starship
+# brew install autojump
+# brew install zsh-autosuggestions
+# brew install zsh-syntax-highlighting
+
 # Zsh plugins
 # Starship
 eval "$(starship init zsh)"
 # Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 # Syntax Highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
