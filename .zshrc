@@ -16,14 +16,17 @@ eval "$(rbenv init -)"
 
 ## INSTALLATION of Zsh & Plugins (with brew)
 # brew install zsh
-# brew install starship
+# brew install spaceship
+# [? maybe later instead of spaceship ?] brew install starship
 # brew install autojump
 # brew install zsh-autosuggestions
 # brew install zsh-syntax-highlighting
 
 # Zsh plugins
-# Starship
-eval "$(starship init zsh)"
+# [? maybe later instead of spaceship ?] Starship
+# [? maybe later instead of spaceship ?] eval "$(starship init zsh)"
+# Spaceship
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 # Autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 # Syntax Highlighting
