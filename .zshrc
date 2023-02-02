@@ -21,6 +21,7 @@ eval "$(rbenv init -)"
 # brew install autojump
 # brew install zsh-autosuggestions
 # brew install zsh-syntax-highlighting
+# brew install ripgrep  # vim file search dependency
 
 # Zsh plugins
 # [? maybe later instead of spaceship ?] Starship
