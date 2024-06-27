@@ -30,6 +30,11 @@ if (empty($TMUX))
   endif
 endif
 
+" Colorscheme assignment
 colorscheme onedark
 
+" Dim inactive window
+hi WindowInactive ctermbg=237  " or ctermbg=grey for 256 color terminal
+au VimEnter,WinNew,WinEnter   * set wincolor=
+au WinLeave * set wincolor=WindowInactive
 

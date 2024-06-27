@@ -1,26 +1,19 @@
 # This file is loaded by ~/.zshrc
+# Env variables are loaded in ~/.zshrc
+# Aliases are loaded in ~/.zshrc
 
-# Load env variables
-source ~/.env_variables
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# Load aliases
-# # M1 specific aliases
-# alias rvm="ARCHFLAGS='-arch x86_64' rvm"
-# alias rbenv="ARCHFLAGS='-arch x86_64' rbenv"
-# alias gem="ARCHFLAGS='-arch x86_64' gem"
-# alias bundle="ARCHFLAGS='-arch x86_64' bundle"
-# alias nvm="ARCHFLAGS='-arch x86_64' nvm"
-# alias npm="ARCHFLAGS='-arch x86_64' npm"
-# alias yarn="ARCHFLAGS='-arch x86_64' yarn"
-# Git
-alias gs='git status'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gd='git diff'
-alias gco='git checkout'
-alias gpush='git push'
-alias gpull='git pull'
-alias gstash='git stash'
-alias greset='git reset'
-alias grestore='git restore'

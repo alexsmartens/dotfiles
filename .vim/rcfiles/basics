@@ -51,14 +51,23 @@ set updatetime=100
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-" Simplicity shortcuts
+" Shortcuts for correcting  me typing wrong commands sometimes
 :command W w
 
-" "Buffer navigation
-nmap ˙ :bp<cr>
-nmap ¬ :bn<cr>
-" nmap ç :bufdo bd    " close all buffers except the current one
-nmap ç :b#<bar>bd#<cr> " delete current buffer and switch to the previously open one
+" Pane navigation (left and right)
+nnoremap <C-n> <C-w>W
+nnoremap <C-o> <C-w>w
+" nnoremap <C-J> <C-W>j
+" nnoremap <C-K> <C-W>k
+" Simplified original split navigation command `split_number C-w C-w`: https://stackoverflow.com/questions/6053301/easier-way-to-navigate-between-vim-split-panes
+" nnoremap t <C-w><C-w>
+" nnoremap ; <C-w><C-w>
+
+" Buffer navigation
+nnoremap ˜ :bp<cr>         " <Opt + m> (move <-)
+nnoremap ø :bn<cr>         " <Opt + o> (move ->)
+" nmap ç :bufdo bd     " close all buffers except the current one
+nnoremap ç :b#<bar>bd#<cr> " <Opt + c> delete current buffer and switch to the previously open one
 " above command is the same as ':b#|bd#'
 
 " " No annoying sound on errors

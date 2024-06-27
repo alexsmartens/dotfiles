@@ -8,5 +8,7 @@ Plug 'tpope/vim-rhubarb'
 " Split always vertical
 set diffopt=vertical
 
+nmap ghb :Git blame<cr>
+
 " vim:ft=vi
 

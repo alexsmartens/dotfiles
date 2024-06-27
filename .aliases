@@ -1,0 +1,33 @@
+# This file is loaded by ~/.zshrc
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gpull="git pull"
+alias gpush="git push"
+alias gd="git diff"
+alias gdf="git diff --name-only" # git diff --name-only BASE_BRANCH..PR_BRANCH
+alias gb="git branch"
+alias gco="git checkout"
+alias gcoh="git checkout HEAD --"  # git checkout HEAD -- file_name
+alias gcom="git checkout master"
+alias grb="git rebase"
+# gpull origin new_branch --rebase
+alias greset="git reset"
+alias grr="git restore"
+alias grrs="git restore --staged"
+alias grra="git restore --staged ."
+alias gcp="git cherry-pick"
+alias gl="git log"
+alias gmv="git mv"
+# Git Stash
+alias gsh="git stash"
+alias gshl="git stash list"
+alias gsha="git stash apply"
+alias gshs="git stash show"
+alias gshd="git stash drop"
+alias gshpush="git stash push"
+alias gshpop="git stash pop"
+# Rails
+alias be="bundle exec"
+

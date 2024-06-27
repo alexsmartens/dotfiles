@@ -1,0 +1,6 @@
+" Rails enhanced syntax highlighting and easy navigation
+
+Plug 'tpope/vim-rails'
+
+" vim:ft=vim
+

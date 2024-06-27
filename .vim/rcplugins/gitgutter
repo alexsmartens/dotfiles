@@ -10,6 +10,7 @@ nmap [h <Plug>(GitGutterPrevHunk)
 " Undo/stage the hunk
 nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghf :!git add %<CR>  " staging the whole file
 " Preview hunk
 nmap ghp <Plug>(GitGutterPreviewHunk)
 " Close preview

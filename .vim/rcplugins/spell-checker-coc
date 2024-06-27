@@ -1,0 +1,6 @@
+" A basic spell checker that works well with camelCase code
+
+Plug 'iamcco/coc-spell-checker'
+
+" vim:ft=vim
+
