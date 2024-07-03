@@ -10,24 +10,6 @@ return {
     },
     config = function()
       require "nvim-treesitter.configs".setup {
-        -- Enable syntax highlight
-        highlight = {
-          enable = true,
-          -- Vim's native regular expression-based highlighting
-          additional_vim_regex_highlighting = false,
-          -- Enable spell checking using @spell  #tag:spell
-          -- https://github.com/tree-sitter/tree-sitter/discussions/3444
-          spell = {
-            enable = true,
-            hl = "SpellBad",  -- Highlight spelling errors
-          },
-        },
-
-        -- Enable indentation
-        indent = {
-          enable = true,
-        },
-
         ensure_installed = {
           "bash",
           "css",
@@ -53,6 +35,22 @@ return {
           "vim",
           "vimdoc",  -- otherwise :help comes up with an error (https://www.reddit.com/r/neovim/comments/1do7p36/vimdoc_parser_error_after_update/)
           "yaml",
+        },
+
+        highlight = {
+          enable = true,
+          -- Vim's native regular expression-based highlighting
+          additional_vim_regex_highlighting = false,
+          -- Enable spell checking using @spell  #tag:spell
+          -- https://github.com/tree-sitter/tree-sitter/discussions/3444
+          spell = {
+            enable = true,
+            hl = "SpellBad",  -- Highlight spelling errors
+          },
+        },
+
+        indent = {
+          enable = true,
         },
 
         select = {

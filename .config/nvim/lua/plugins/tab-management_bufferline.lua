@@ -11,17 +11,15 @@ return {
       light_gray = "#A5A5A5",
       lighter_gray = "#C0C0C0",
       dark_gray = "#484848",
+      carrot_orange = "#EA8539",
+      light_salmon = "#FFAF82",
+      olive_green = "#B9BB47",
     }
 
     require("bufferline").setup({
       options = {
         mode = "buffers",                 -- Display buffers as tabs
-        separator_style = "slant",
-        diagnostics = "nvim_lsp",         -- Show diagnostics using LSP protocol (errors, warnings, etc.)
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          local icon = level:match("error") and " " or " "  -- Icon based on error level
-          return " " .. icon .. count      -- Display the diagnostics count with an icon
-        end,
+        separator_style = "none",         -- Disable separators
         offsets = {                       -- Adjust bufferline when certain filetypes are open
           {
             filetype = "NvimTree",        -- When NvimTree is open...
@@ -75,34 +73,17 @@ return {
       highlights = require("catppuccin.groups.integrations.bufferline").get {
         custom = {
           all = {
-            fill = {
-              bg = colors.lighter_gray,
-            },
             -- Selected buffers
             buffer_selected = {
-            },
-            separator_selected = {
-              fg = colors.lighter_gray,
-            },
-            modified_selected = {
+              fg = colors.light_salmon,
+              bold = false,
+              italic = false,
             },
             numbers_selected = {
+              fg = colors.light_salmon,
             },
-            -- Non-selected buffers
-            background = {
-              fg = colors.dark_gray,
-              bg = colors.light_gray,
-            },
-            separator = {
-              fg = colors.lighter_gray,
-              bg = colors.light_gray,
-            },
-            modified = {
-              bg = colors.light_gray,
-            },
-            numbers = {
-              fg = colors.dark_gray,
-              bg = colors.light_gray,
+            indicator_selected = {
+              fg = colors.light_salmon,
             },
           },
         },

@@ -17,14 +17,15 @@ return {
         mappings = {
           -- Insert mode
           i = {
-            -- qwerty
-            ["<C-l>"] = actions.move_selection_previous, -- move to prev results
-            ["<C-k>"] = actions.move_selection_next, -- move to next results
-            -- Colemak
-            ["<C-i>"] = actions.move_selection_previous, -- move to prev results
-            ["<C-e>"] = actions.move_selection_next, -- move to next results
+            -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            -- ["C-v"] - a default mapping for a vertical split
+            ["<C-h>"] = actions.select_horizontal,
+          },
+          -- Normal mode
+          n = {
+            -- ["C-v"] - a default mapping for a vertical split
+            ["<C-h>"] = actions.select_horizontal,
           }
         }
       }
