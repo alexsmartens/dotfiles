@@ -54,12 +54,12 @@ opt.smartcase = true
 -- Allow backspace deletion of auto-indents, end-of-line characters and characters before the current insert session
 opt.backspace = "indent,eol,start"
 
--- Enable syntax highlighting
-vim.cmd("syntax on")
 -- Enable spellcheck
 opt.spell = true
 opt.spelllang = { "en_us" }
-opt.spelloptions:append({ "camel" })
+opt.spelloptions:append "camel"
+opt.spellcapcheck = "" -- disable checking for capital letters at the start of sentences
+-- NOTE: zg - adds a spelling to a global dictionary
 
 -- Highlight trailing whitespaces
 vim.cmd([[highlight ExtraWhitespace ctermbg=darkred guibg=darkred]])

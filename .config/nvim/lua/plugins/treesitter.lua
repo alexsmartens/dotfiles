@@ -41,12 +41,6 @@ return {
           enable = true,
           -- Vim's native regular expression-based highlighting
           additional_vim_regex_highlighting = false,
-          -- Enable spell checking using @spell  #tag:spell
-          -- https://github.com/tree-sitter/tree-sitter/discussions/3444
-          spell = {
-            enable = true,
-            hl = "SpellBad",  -- Highlight spelling errors
-          },
         },
 
         indent = {
