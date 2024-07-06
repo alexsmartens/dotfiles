@@ -78,12 +78,16 @@ return {
         },
       }
 
+      -- Ensure custom queries are picked up
+      vim.opt.runtimepath:append('~/.config/nvim/queries')
+
       -- Enable spell checking for code blocks marked with @spell  #tag:spell
       vim.api.nvim_exec([[
         autocmd BufRead,BufNewFile * setlocal spell
       ]], false)
 
-      vim.keymap.set("n", "<leader>ni", ":InspectTree<CR>", { desc = "Node tree inspect" })
+      vim.keymap.set("n", "<leader>it", ":InspectTree<CR>", { desc = "Inspect tree" })
+      vim.keymap.set("n", "<leader>in", ":Inspect<CR>", { desc = "Inspect node" })
     end,
   },
 }

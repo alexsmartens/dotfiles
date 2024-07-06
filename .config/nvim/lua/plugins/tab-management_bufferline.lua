@@ -97,7 +97,7 @@ return {
       end
       vim.keymap.set(mode, lhs, rhs, options)
     end
-    -- Tab navigations (Opt-1, Opt-2, ...)
+    -- Tab navigations <Opt+1>, <Opt+2>, ..., <Opt+0>
     map("n", "¡", ":BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
     map("n", "™", ":BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
     map("n", "£", ":BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
@@ -113,6 +113,9 @@ return {
     -- Colemak: n and o
     map("n", "·", ":BufferLineCyclePrev<CR>", { desc = "Cycle to previous buffer" })
     map("n", "‚", ":BufferLineCycleNext<CR>", { desc = "Cycle to next buffer" })
+
+    -- <Opt + c> close current buffer and switch to the previously open one
+    map("n", "ç", ":b#<bar>bd#<CR>", { desc = "Close current buffer" })
   end,
 }
 
