@@ -1,5 +1,7 @@
 -- Tab management
 
+local set_keymap = require("utils.shared").set_keymap
+
 return {
   "akinsho/bufferline.nvim",
   after = "catppuccin",
@@ -90,32 +92,25 @@ return {
       };
     })
 
-    local function map(mode, lhs, rhs, opts)
-      local options = { noremap = true, silent = true }
-      if opts then
-        options = vim.tbl_extend("force", options, opts)
-      end
-      vim.keymap.set(mode, lhs, rhs, options)
-    end
     -- Tab navigations <Opt+1>, <Opt+2>, ..., <Opt+0>
-    map("n", "¡", ":BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
-    map("n", "™", ":BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
-    map("n", "£", ":BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
-    map("n", "¢", ":BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
-    map("n", "∞", ":BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
+    set_keymap("n", "¡", ":BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
+    set_keymap("n", "™", ":BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
+    set_keymap("n", "£", ":BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
+    set_keymap("n", "¢", ":BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
+    set_keymap("n", "∞", ":BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
 
-    map("n", "§", ":BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
-    map("n", "¶", ":BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
-    map("n", "•", ":BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
-    map("n", "ª", ":BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
-    map("n", "º", ":BufferLineGoToBuffer 10<CR>", { desc = "Go to buffer 10" })
+    set_keymap("n", "§", ":BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
+    set_keymap("n", "¶", ":BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
+    set_keymap("n", "•", ":BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
+    set_keymap("n", "ª", ":BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
+    set_keymap("n", "º", ":BufferLineGoToBuffer 10<CR>", { desc = "Go to buffer 10" })
 
     -- Colemak: n and o
-    map("n", "·", ":BufferLineCyclePrev<CR>", { desc = "Cycle to previous buffer" })
-    map("n", "‚", ":BufferLineCycleNext<CR>", { desc = "Cycle to next buffer" })
+    set_keymap("n", "·", ":BufferLineCyclePrev<CR>", { desc = "Cycle to previous buffer" })
+    set_keymap("n", "‚", ":BufferLineCycleNext<CR>", { desc = "Cycle to next buffer" })
 
     -- <Opt + c> close current buffer and switch to the previously open one
-    map("n", "ç", ":b#<bar>bd#<CR>", { desc = "Close current buffer" })
+    set_keymap("n", "ç", ":b#<bar>bd#<CR>", { desc = "Close current buffer" })
   end,
 }
 
