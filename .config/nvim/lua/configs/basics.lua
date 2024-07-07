@@ -15,7 +15,7 @@ local opt = vim.opt
 -- Search
 -- Show changes preview
 vim.o.inccommand = "nosplit"  -- not needed because this is Neovim's default value
--- Search and replace example
+-- NOTE: Search and replace example
 --
 --   :%s/search/replace/gc
 --
