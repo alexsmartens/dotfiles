@@ -78,11 +78,6 @@ return {
         },
       }
 
-      -- Enable spell checking for code blocks marked with @spell  #tag:spell
-      vim.api.nvim_exec([[
-        autocmd BufRead,BufNewFile * setlocal spell
-      ]], false)
-
       vim.keymap.set("n", "<leader>it", ":InspectTree<CR>", { desc = "Inspect tree" })
       vim.keymap.set("n", "<leader>in", ":Inspect<CR>", { desc = "Inspect node" })
     end,
