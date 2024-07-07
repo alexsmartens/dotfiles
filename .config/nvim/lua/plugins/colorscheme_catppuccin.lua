@@ -8,7 +8,7 @@ return {
       dim_inactive = {
           enabled = true,
           shade = "light",
-          percentage = 0.8, -- percentage of the shade to be applied
+          percentage = 0.99, -- percentage of the shade to be applied
       },
 
       flavour = "mocha", -- mocha is the darkest flavour

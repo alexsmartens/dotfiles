@@ -78,9 +78,6 @@ return {
         },
       }
 
-      -- Ensure custom queries are picked up
-      vim.opt.runtimepath:append('~/.config/nvim/queries')
-
       -- Enable spell checking for code blocks marked with @spell  #tag:spell
       vim.api.nvim_exec([[
         autocmd BufRead,BufNewFile * setlocal spell

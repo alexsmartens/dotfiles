@@ -1,3 +1,13 @@
+
+-- Basic supported keywords:
+--
+-- TEST:
+-- HACK:
+-- TODO:
+-- NOTE:
+-- FIX:
+-- WARNING:
+
 local set_keymap = require("utils.shared").set_keymap
 
 return {
