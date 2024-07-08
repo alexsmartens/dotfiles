@@ -18,6 +18,9 @@ return {
       olive_green = "#B9BB47",
     }
 
+    local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
+    local default_highlights_all = catppuccin_bufferline.get({theme = "all"})()
+
     require("bufferline").setup({
       options = {
         mode = "buffers",                 -- Display buffers as tabs
@@ -70,11 +73,15 @@ return {
       --     fg = "white",
       --     bg = "black",
       --   },
-      --   },
       -- },
-      highlights = require("catppuccin.groups.integrations.bufferline").get {
+      highlights = catppuccin_bufferline.get {
         custom = {
           all = {
+            -- NOTE: All possible configs:
+            -- https://github.com/akinsho/bufferline.nvim/blob/81820cac7c85e51e4cf179f8a66d13dbf7b032d9/doc/bufferline.txt#L806
+            -- NOTE: For getting the color value run:
+            -- :lua local bufferline = require("catppuccin.groups.integrations.bufferline"); local highlights_all = bufferline.get({theme = "all"})(); print(vim.inspect(highlights_all.tab.fg))
+            
             -- Selected buffers
             buffer_selected = {
               fg = colors.light_salmon,
@@ -87,11 +94,50 @@ return {
             indicator_selected = {
               fg = colors.light_salmon,
             },
+            -- Make diagnostics less invasive
+            diagnostic = {
+              -- fg = default_highlights_all.tab.fg, -- probably I should reference a different color this one is too dark
+              fg = colors.gray,
+            },
+            diagnostic_visible = {
+              fg = colors.gray,
+            },
+            diagnostic_selected = {
+              fg = colors.light_salmon,
+            },
+            info = {
+              fg = colors.gray,
+            },
+            info_visible = {
+              fg = colors.gray,
+            },
+            info_selected = {
+              fg = colors.light_salmon,
+            },
+            warning = {
+              fg = colors.gray,
+            },
+            warning_visible = {
+              fg = colors.gray,
+            },
+            warning_selected = {
+              fg = colors.light_salmon,
+            },
+            warning_diagnostic = {
+              fg = colors.gray,
+            },
+            warning_diagnostic_visible = {
+              fg = colors.gray,
+            },
+            warning_diagnostic_selected = {
+              fg = colors.light_salmon,
+            },
           },
         },
       };
     })
 
+    -- NOTE: echo opt+smth indicates what character this keymap resolves to
     -- Tab navigations <Opt+1>, <Opt+2>, ..., <Opt+0>
     set_keymap("n", "¡", ":BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
     set_keymap("n", "™", ":BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
@@ -105,11 +151,11 @@ return {
     set_keymap("n", "ª", ":BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
     set_keymap("n", "º", ":BufferLineGoToBuffer 10<CR>", { desc = "Go to buffer 10" })
 
-    -- Colemak: n and o
-    set_keymap("n", "·", ":BufferLineCyclePrev<CR>", { desc = "Cycle to previous buffer" })
-    set_keymap("n", "‚", ":BufferLineCycleNext<CR>", { desc = "Cycle to next buffer" })
+    -- Tab navigations <Opt+[>, <Opt+]>
+    set_keymap("n", "“", ":BufferLineCyclePrev<CR>", { desc = "Cycle to previous buffer" })
+    set_keymap("n", "‘", ":BufferLineCycleNext<CR>", { desc = "Cycle to next buffer" })
 
-    -- <Opt + c> close current buffer and switch to the previously open one
+    -- Close current buffer and switch to the previously open one <Opt + c>
     set_keymap("n", "ç", ":b#<bar>bd#<CR>", { desc = "Close current buffer" })
   end,
 }
