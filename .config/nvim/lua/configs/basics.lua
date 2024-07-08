@@ -61,6 +61,10 @@ opt.spelloptions:append "camel"
 opt.spellcapcheck = "" -- disable checking for capital letters at the start of sentences
 -- NOTE: zg - adds a spelling to a global dictionary
 
+-- Always show sign column to avoid jittering effect caused by lsp-config when
+-- switching between Normal and Insert modes
+opt.signcolumn = "yes"
+
 -- Highlight trailing whitespaces
 vim.cmd([[highlight ExtraWhitespace ctermbg=darkred guibg=darkred]])
 vim.cmd([[match ExtraWhitespace /\s\+$/]])
