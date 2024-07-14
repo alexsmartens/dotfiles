@@ -66,8 +66,15 @@ opt.spellcapcheck = "" -- disable checking for capital letters at the start of s
 opt.signcolumn = "yes"
 
 -- Highlight trailing whitespaces
-vim.cmd([[highlight ExtraWhitespace ctermbg=darkred guibg=darkred]])
-vim.cmd([[match ExtraWhitespace /\s\+$/]])
+-- Set the highlight for trailing whitespace
+vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "darkred", bg = "darkred" })
+-- Autocommand to highlight trailing whitespace in all buffers
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
+    end,
+})
 
 return {}
 
