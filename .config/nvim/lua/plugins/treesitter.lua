@@ -6,7 +6,8 @@ return {
     build = ":TSUpdate",
     dependencies = {
       -- Auto-closing tags
-      "windwp/nvim-ts-autotag",
+      -- "windwp/nvim-ts-autotag"
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
       require "nvim-treesitter.configs".setup {
@@ -45,36 +46,6 @@ return {
 
         indent = {
           enable = true,
-        },
-
-        select = {
-          enable = true,
-
-          -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = true,
-
-          keymaps = {
-              ["bi"] = "@block.inner",
-              ["bo"] = "@block.outer",
-              ["ci"] = "@class.inner",
-              ["co"] = "@class.outer",
-              ["fi"] = "@function.inner",
-              ["fo"] = "@function.outer",
-              ["di"] = "@function.inner",
-              ["do"] = "@function.outer",
-              ["pi"] = "@parameter.inner",
-              ["po"] = "@parametre.outer",
-          },
-          -- If you set this to `true` (default is `false`) then any textobject is
-          -- extended to include preceding or succeeding whitespace. Succeeding
-          -- whitespace has priority in order to act similarly to eg the built-in
-          -- `ap`.
-          --
-          -- Can also be a function which gets passed a table with the keys
-          -- * query_string: eg '@function.inner'
-          -- * selection_mode: eg 'v'
-          -- and should return true or false
-          include_surrounding_whitespace = true,
         },
       }
 
