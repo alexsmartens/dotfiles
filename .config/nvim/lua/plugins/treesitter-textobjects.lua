@@ -11,17 +11,31 @@ return {
             lookahead = true,
 
             keymaps = {
-              ["ac"] = { query = "@class.outer", desc = "outer class" },
+              ["ac"] = { query = "@class.outer", desc = "all class" },
               ["ic"] = { query = "@class.inner", desc = "inner class" },
 
-              ["af"] = { query = "@function.outer", desc = "outer function" },
+              ["af"] = { query = "@function.outer", desc = "all function" },
               ["if"] = { query = "@function.inner", desc = "inner function" },
 
-              ["ab"] = { query = "@block.outer", desc = "outer block" },
+              ["ab"] = { query = "@block.outer", desc = "all block" },
               ["ib"] = { query = "@block.inner", desc = "inner block" },
 
-              ["ap"] = { query = "@parameter.outer", desc = "outer parameter" },
-              ["ip"] = { query = "@parameter.inner", desc = "inner parameter" },
+              ["aa"] = { query = "@parameter.outer", desc = "all arguments" },
+              ["ia"] = { query = "@parameter.inner", desc = "inner arguments" },
+
+              ["ac"] = { query = "@comment.outer", desc = "all comment" },
+            },
+            selection_modes = {
+              ["@class.outer"] = "V", -- Line-wise selection
+              ["@class.inner"] = "V",
+
+              ["@function.outer"] = "V",
+              ["@function.inner"] = "V",
+
+              ["@block.outer"] = "V",
+              ["@block.inner"] = "V",
+
+              ["@comment.inner"] = "V",
             },
             -- If you set this to `true` (default is `false`) then any textobject is
             -- extended to include preceding or succeeding whitespace. Succeeding
@@ -65,6 +79,24 @@ return {
         function() require("various-textobjs").lineCharacterwise("outer") end,
         mode = { "x", "o" },
         desc = "a line",
+      },
+      {
+        "ai",
+        function() require("various-textobjs").indentation(false, false, false) end, -- arguments: startBorder, endBorder, blankLines)
+        mode = { "x", "o" },
+        desc = "all indentation with lines below/above",
+      },
+      {
+        "ii",
+        function() require("various-textobjs").indentation(true, true, true) end, -- arguments: startBorder, endBorder, blankLines)
+        mode = { "x", "o" },
+        desc = "inner indentation w/o blank lines",
+      },
+      {
+        "iI",
+        function() require("various-textobjs").indentation(true, true, false) end, -- arguments: startBorder, endBorder, blankLines)
+        mode = { "x", "o" },
+        desc = "inner indentation w blank lines",
       },
     }
   },

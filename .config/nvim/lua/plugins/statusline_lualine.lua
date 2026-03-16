@@ -45,6 +45,11 @@ return {
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
+      terminal = {
+        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+        b = { bg = colors.bg, fg = colors.fg },
+        c = { bg = colors.bg, fg = colors.fg },
+      },
       inactive = {
         a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
         b = { bg = colors.inactive_bg, fg = colors.semilightgray },

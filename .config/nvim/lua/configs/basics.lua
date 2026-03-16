@@ -61,18 +61,30 @@ opt.spelloptions:append "camel"
 opt.spellcapcheck = "" -- disable checking for capital letters at the start of sentences
 -- NOTE: zg - adds a spelling to a global dictionary
 
+-- Prevent windows from auto-resizing when opening/closing splits
+opt.equalalways = false
+
 -- Always show sign column to avoid jittering effect caused by lsp-config when
 -- switching between Normal and Insert modes
 opt.signcolumn = "yes"
 
 -- Highlight trailing whitespaces
--- Set the highlight for trailing whitespace
 vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "darkred", bg = "darkred" })
--- Autocommand to highlight trailing whitespace in all buffers
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = "*",
+vim.api.nvim_create_autocmd({"BufWinEnter", "TermOpen"}, {
     callback = function()
-        vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
+        vim.schedule(function()
+            -- Clear stale window-local matches (matchadd is per-window, not per-buffer)
+            for _, m in ipairs(vim.fn.getmatches()) do
+                if m.group == "ExtraWhitespace" then
+                    vim.fn.matchdelete(m.id)
+                end
+            end
+            if vim.bo.buftype == "terminal" then
+                vim.opt_local.list = false
+                return
+            end
+            vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
+        end)
     end,
 })
 

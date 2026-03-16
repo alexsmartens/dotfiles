@@ -17,6 +17,7 @@ return {
         dark = "mocha",
       },
       integrations = {
+        bufferline = true,
         cmp = true,
         gitsigns = true,
         nvimtree = true,

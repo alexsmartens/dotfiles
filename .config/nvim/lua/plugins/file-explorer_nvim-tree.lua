@@ -11,15 +11,28 @@ local function on_attach_custom(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- Custom mappings
-  vim.keymap.set("n", "R", api.fs.rename_full, opts("Rename: Full Path"))
-  vim.keymap.set("n", "u", api.tree.reload, opts("Update"))
+  set_keymap("n", "R", api.fs.rename_full, opts("Rename: Full Path"))
+  set_keymap("n", "u", api.tree.reload, opts("Update"))
+  set_keymap("n", "<Esc>", api.tree.close, opts("Close Explorer"))
+
+  -- preview keymaps  (feel free to change keys)
+  local preview = require("nvim-tree-preview")
+  set_keymap("n", "p",       preview.node_under_cursor, opts("Preview Node"))
+  set_keymap("n", "P",       preview.watch,             opts("Live Preview"))
+  set_keymap("n", "<C-e>",   function() preview.scroll(4)  end, opts("Scroll Down↓"))
+  set_keymap("n", "<C-i>",   function() preview.scroll(-4) end, opts("Scroll Up↑"))
+  -- Qwerty layout duplicates of Up and Down
+  set_keymap("n", "<C-d>",   function() preview.scroll(4)  end, opts("Scroll Down↓"))
+  set_keymap("n", "<C-u>",   function() preview.scroll(-4) end, opts("Scroll Up↑"))
+  set_keymap("n", "q",       preview.unwatch,            opts("Close Preview"))
 end
 
 
 return {
   "nvim-tree/nvim-tree.lua",
-  requires = {
+  dependencies = {
     "nvim-tree/nvim-web-devicons", -- optional, for file icons
+    { "b0o/nvim-tree-preview.lua", dependencies = "nvim-lua/plenary.nvim" },
   },
   config = function()
     require("nvim-tree").setup {
@@ -33,6 +46,34 @@ return {
         root_folder_modifier = ":t",
         indent_markers = {
           enable = true,
+        },
+      },
+      -- A floating popup window instead of a sidebar
+      view = {
+        float = {
+          enable = true,
+          quit_on_focus_loss = false,
+          open_win_config = (function()
+            local ui      = vim.api.nvim_list_uis()[1]              -- actual grid
+            local w_ratio = 0.80
+            local h_ratio = 0.89
+            local w       = math.floor(ui.width  * w_ratio)
+            local h       = math.floor(ui.height * h_ratio)
+
+            return {
+              relative = "editor",
+              border   = "rounded",
+              width    = w,
+              height   = h,
+              row      = math.floor((ui.height - h) / 2),
+              col      = math.floor((ui.width  - w) / 2),
+            }
+          end)(),
+        },
+      },
+      actions = {
+        open_file = {
+          quit_on_open = true,
         },
       },
     }

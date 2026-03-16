@@ -5,8 +5,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
-      -- Auto-closing tags
-      -- "windwp/nvim-ts-autotag"
+      "windwp/nvim-ts-autotag", -- Auto-closing tags
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()

@@ -7,20 +7,20 @@ return {
     local keymap = vim.api.nvim_set_keymap
     local opts = { noremap = true, silent = true }
 
-    -- QWERTY mappings
-    keymap("n", "<C-h>", ":TmuxNavigateLeft<CR>", opts)
-    keymap("n", "<C-j>", ":TmuxNavigateDown<CR>", opts)
-    keymap("n", "<C-k>", ":TmuxNavigateUp<CR>", opts)
-    keymap("n", "<C-l>", ":TmuxNavigateRight<CR>", opts)
-    keymap("n", "<C-\\>", ":TmuxNavigatePrevious<CR>", opts)
-
-    -- Colemak mappings
-    keymap("n", "<C-n>", ":TmuxNavigateLeft<CR>", opts)
-    keymap("n", "<C-e>", ":TmuxNavigateDown<CR>", opts)
-    keymap("n", "<C-i>", ":TmuxNavigateUp<CR>", opts)
-    keymap("n", "<C-o>", ":TmuxNavigateRight<CR>", opts)
-
-    keymap("n", "<C-\\>", ":TmuxNavigatePrevious<CR>", opts)
+    -- Navigation mappings (normal + terminal mode)
+    local modes = { "n", "t" }
+    -- QWERTY
+    vim.keymap.set(modes, "<C-h>", "<C-\\><C-n>:TmuxNavigateLeft<CR>", opts)
+    vim.keymap.set(modes, "<C-j>", "<C-\\><C-n>:TmuxNavigateDown<CR>", opts)
+    vim.keymap.set(modes, "<C-k>", "<C-\\><C-n>:TmuxNavigateUp<CR>", opts)
+    vim.keymap.set(modes, "<C-l>", "<C-\\><C-n>:TmuxNavigateRight<CR>", opts)
+    -- Colemak
+    vim.keymap.set(modes, "<C-n>", "<C-\\><C-n>:TmuxNavigateLeft<CR>", opts)
+    vim.keymap.set(modes, "<C-e>", "<C-\\><C-n>:TmuxNavigateDown<CR>", opts)
+    vim.keymap.set(modes, "<C-i>", "<C-\\><C-n>:TmuxNavigateUp<CR>", opts)
+    vim.keymap.set(modes, "<C-o>", "<C-\\><C-n>:TmuxNavigateRight<CR>", opts)
+    -- Previous window
+    vim.keymap.set(modes, "<C-\\>", "<C-\\><C-n>:TmuxNavigatePrevious<CR>", opts)
   end
 }
 
