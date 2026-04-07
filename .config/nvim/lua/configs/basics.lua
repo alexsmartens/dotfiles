@@ -70,6 +70,11 @@ opt.signcolumn = "yes"
 
 -- Highlight trailing whitespaces
 vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "darkred", bg = "darkred" })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "darkred", bg = "darkred" })
+    end,
+})
 vim.api.nvim_create_autocmd({"BufWinEnter", "TermOpen"}, {
     callback = function()
         vim.schedule(function()

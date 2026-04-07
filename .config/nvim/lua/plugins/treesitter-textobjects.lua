@@ -2,52 +2,29 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
-      require("nvim-treesitter.configs").setup {
-        textobjects = {
-          select = {
-            enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-
-            keymaps = {
-              ["ac"] = { query = "@class.outer", desc = "all class" },
-              ["ic"] = { query = "@class.inner", desc = "inner class" },
-
-              ["af"] = { query = "@function.outer", desc = "all function" },
-              ["if"] = { query = "@function.inner", desc = "inner function" },
-
-              ["ab"] = { query = "@block.outer", desc = "all block" },
-              ["ib"] = { query = "@block.inner", desc = "inner block" },
-
-              ["aa"] = { query = "@parameter.outer", desc = "all arguments" },
-              ["ia"] = { query = "@parameter.inner", desc = "inner arguments" },
-
-              ["ac"] = { query = "@comment.outer", desc = "all comment" },
-            },
-            selection_modes = {
-              ["@class.outer"] = "V", -- Line-wise selection
-              ["@class.inner"] = "V",
-
-              ["@function.outer"] = "V",
-              ["@function.inner"] = "V",
-
-              ["@block.outer"] = "V",
-              ["@block.inner"] = "V",
-
-              ["@comment.inner"] = "V",
-            },
-            -- If you set this to `true` (default is `false`) then any textobject is
-            -- extended to include preceding or succeeding whitespace. Succeeding
-            -- whitespace has priority in order to act similarly to eg the built-in
-            -- `ap`.
-            --
-            -- Can also be a function which gets passed a table with the keys
-            -- * query_string: eg '@function.inner'
-            -- * selection_mode: eg 'v'
-            -- and should return true or false
-            include_surrounding_whitespace = true,
+      require("nvim-treesitter-textobjects").setup {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["ac"] = { query = "@class.outer", desc = "all class" },
+            ["ic"] = { query = "@class.inner", desc = "inner class" },
+            ["af"] = { query = "@function.outer", desc = "all function" },
+            ["if"] = { query = "@function.inner", desc = "inner function" },
+            ["ab"] = { query = "@block.outer", desc = "all block" },
+            ["ib"] = { query = "@block.inner", desc = "inner block" },
+            ["aa"] = { query = "@parameter.outer", desc = "all arguments" },
+            ["ia"] = { query = "@parameter.inner", desc = "inner arguments" },
           },
+          selection_modes = {
+            ["@class.outer"] = "V",
+            ["@class.inner"] = "V",
+            ["@function.outer"] = "V",
+            ["@function.inner"] = "V",
+            ["@block.outer"] = "V",
+            ["@block.inner"] = "V",
+          },
+          include_surrounding_whitespace = true,
         },
       }
     end,

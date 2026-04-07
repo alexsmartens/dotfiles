@@ -9,7 +9,7 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-      require "nvim-treesitter.configs".setup {
+      require("nvim-treesitter").setup {
         ensure_installed = {
           "bash",
           "css",
@@ -35,16 +35,6 @@ return {
           "vim",
           "vimdoc",  -- otherwise :help comes up with an error (https://www.reddit.com/r/neovim/comments/1do7p36/vimdoc_parser_error_after_update/)
           "yaml",
-        },
-
-        highlight = {
-          enable = true,
-          -- Vim's native regular expression-based highlighting
-          additional_vim_regex_highlighting = false,
-        },
-
-        indent = {
-          enable = true,
         },
       }
 
