@@ -15,18 +15,14 @@ opt.number = true
 opt.splitbelow = true
 opt.splitright = true
 
--- Enable enhanced 24-bit colors
-opt.termguicolors = true
-
 -- Auto resize split windows to be equal size when the window size is changed or a window is opened/closed
-vim.api.nvim_exec([[
-  augroup ResizeSplits
-    autocmd!
-    autocmd VimResized * wincmd =
-    autocmd WinNew * wincmd =
-    autocmd WinClosed * wincmd =
-  augroup END
-]], false)
+local resize_group = vim.api.nvim_create_augroup("ResizeSplits", { clear = true })
+for _, event in ipairs({ "VimResized", "WinNew", "WinClosed" }) do
+  vim.api.nvim_create_autocmd(event, {
+    group = resize_group,
+    command = "wincmd =",
+  })
+end
 
 -- Remove any special highlighting for vertical splits
 vim.cmd("highlight VertSplit cterm=NONE")
