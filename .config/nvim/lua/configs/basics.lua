@@ -61,6 +61,9 @@ opt.spelloptions:append "camel"
 opt.spellcapcheck = "" -- disable checking for capital letters at the start of sentences
 -- NOTE: zg - adds a spelling to a global dictionary
 
+-- Use system clipboard for yank/paste
+opt.clipboard = "unnamedplus"
+
 -- Prevent windows from auto-resizing when opening/closing splits
 opt.equalalways = false
 
