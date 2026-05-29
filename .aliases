@@ -1,11 +1,13 @@
 # This file is loaded by ~/.zshrc
 # Git
 alias gs="git status"
+alias gclone="git clone"
 alias ga="git add"
 alias gc="git commit"
 alias gpull="git pull"
 alias gpush="git push"
 alias gd="git diff"
+alias gdiff="git diff"
 alias gdf="git diff --name-only" # git diff --name-only BASE_BRANCH..PR_BRANCH
 alias gb="git branch"
 alias gco="git checkout"
