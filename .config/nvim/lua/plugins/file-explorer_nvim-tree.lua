@@ -53,22 +53,22 @@ return {
         float = {
           enable = true,
           quit_on_focus_loss = false,
-          open_win_config = (function()
-            local ui      = vim.api.nvim_list_uis()[1]              -- actual grid
+          -- Evaluated on every open so the float tracks terminal resizes
+          open_win_config = function()
             local w_ratio = 0.80
             local h_ratio = 0.89
-            local w       = math.floor(ui.width  * w_ratio)
-            local h       = math.floor(ui.height * h_ratio)
+            local w       = math.floor(vim.o.columns * w_ratio)
+            local h       = math.floor(vim.o.lines   * h_ratio)
 
             return {
               relative = "editor",
               border   = "rounded",
               width    = w,
               height   = h,
-              row      = math.floor((ui.height - h) / 2),
-              col      = math.floor((ui.width  - w) / 2),
+              row      = math.floor((vim.o.lines   - h) / 2),
+              col      = math.floor((vim.o.columns - w) / 2),
             }
-          end)(),
+          end,
         },
       },
       actions = {
@@ -77,7 +77,6 @@ return {
         },
       },
     }
-    local tree_api = require("nvim-tree.api")
 
     -- Add keymap to toggle NvimTree
     set_keymap("n", "<leader>b", ":NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer and highlight current buffer" })

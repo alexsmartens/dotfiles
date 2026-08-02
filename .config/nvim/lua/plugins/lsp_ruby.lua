@@ -8,7 +8,10 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     vim.lsp.config("ruby_lsp", {
-      cmd = { "bundle", "exec", "ruby-lsp" },
+      -- The rbenv shim resolves per-project via .ruby-version, so each project gets
+      -- ruby-lsp on its own Ruby. Not `bundle exec` -- ruby-lsp finds a project's
+      -- Gemfile itself, and the prefix breaks in directories without one.
+      cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
       filetypes = { "ruby", "eruby" },
       root_markers = { "Gemfile", ".git" },
       capabilities = capabilities,
@@ -20,6 +23,15 @@ return {
     })
 
     vim.lsp.enable("ruby_lsp")
+
+    -- Spell checking for code. Attaches to every filetype; config in ~/.config/typos.toml
+    vim.lsp.config("typos_lsp", {
+      init_options = {
+        diagnosticSeverity = "Error",
+      },
+    })
+
+    vim.lsp.enable("typos_lsp")
   end,
 
   keys = {
