@@ -1,0 +1,2 @@
+#!/bin/sh
+typos "$1" || true
